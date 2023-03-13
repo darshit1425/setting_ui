@@ -11,14 +11,14 @@ class Settings extends StatefulWidget {
   State<Settings> createState() => _SettingsState();
 }
 
-provider? homeprovider;
-provider? homeproviderTrue;
+provider? homeproviderF;
+provider? homeproviderT;
 
 class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
-    homeproviderTrue = Provider.of(context, listen: true);
-    homeprovider = Provider.of(context, listen: false);
+    homeproviderT = Provider.of(context, listen: true);
+    homeproviderF = Provider.of(context, listen: false);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -53,7 +53,6 @@ class _SettingsState extends State<Settings> {
                 color: Color(0xff8F8F8F),
                 thickness: 0.2,
               ),
-
               ListTile(
                 leading: Icon(Icons.cloud),
                 title: Text("Environment"),
@@ -113,8 +112,8 @@ class _SettingsState extends State<Settings> {
                 title: Text("Lock app in background"),
                 trailing: Switch(
                   activeColor: Color(0xffff4500),
-                  value: homeproviderTrue!.onOff1,
-                  onChanged: (value) => homeprovider!.button1(value),
+                  value: homeproviderT!.onOff1,
+                  onChanged: (value) => homeproviderF!.button1(value),
                 ),
               ),
               Divider(
@@ -126,8 +125,8 @@ class _SettingsState extends State<Settings> {
                 title: Text("Use fingerprint"),
                 trailing: Switch(
                   activeColor: Color(0xffff4500),
-                  value: homeproviderTrue!.onOff2,
-                  onChanged: (value) => homeprovider!.button2(value),
+                  value: homeproviderT!.onOff2,
+                  onChanged: (value) => homeproviderF!.button2(value),
                 ),
               ),
               Divider(
@@ -139,8 +138,8 @@ class _SettingsState extends State<Settings> {
                 title: Text("Change password"),
                 trailing: Switch(
                   activeColor: Color(0xffff4500),
-                  value: homeproviderTrue!.onOff3,
-                  onChanged: (value) => homeprovider!.button3(value),
+                  value: homeproviderT!.onOff3,
+                  onChanged: (value) => homeproviderF!.button3(value),
                 ),
               ),
               SizedBox(height: 10),
